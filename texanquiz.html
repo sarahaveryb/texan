@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>What Kind of Texan Are You?</title>
+<style>
+body {
+background-color: lightblue;
+font-family: Helvetica;
+}
+
+#main {
+width: 60%;
+border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+}
+
+#header {
+margin-top: 0;
+border: 2px solid black;
+padding: 5px;
+height: 100px;
+}
+
+label {
+width: 150px;
+display: inline-block;
+}
+
+button {
+display: block;
+margin-top: 20px;
+
+}
+
+
+</style>
+</head>
+<body>
+<div id="main">
+<div id="header"><h1>What Kind of Texan Are You?</h1></div>
+
+<form  id="form1">
+<p>What's your favorite Texas cuisine?</p><td>
+<label><input type="radio" name="cuisine" id="barbecue" value="1" /><img src ='barbecue.png' width='100%' /></label>
+<label><input type="radio" name="cuisine" id="texmex" value="2" /><img src ='texmex.png' width='100%' /></label>
+<label><input type="radio" name="cuisine" id="coast" value="3" /><img src ='boil.png' width='100%' /></label>
+
+<p>What's your favorite Texas activity?</p>
+<label><input type="radio" name="activity" id="bigbend" value="1" /><img src ='bend.png' width='100%' /></label>
+<label><input type="radio" name="activity" id="acl" value="2" /><img src ='acl.png' width='100%' /></label>
+<label><input type="radio"  name="activity"id="kemah" value="3" /><img src ='kemah.png' width='100%' /></label>
+
+<p>What's your favorite Texas animal?</p>
+<label><input type="radio" name="animal" id="arm" value="1" /><img src ='arm.png' width='100%' /></label>
+<label><input type="radio" name="animal" id="horn" value="2" /><img src ='longhorn.png' width='100%' /></label>
+<label><input type="radio" name="animal" id="gator" value="3" /><img src ='gator.png' width='100%' /></label>
+
+
+<button type="submit" value="Submit">Submit</button>
+
+</form>
+
+<p id="answer"></p>
+<p id="answer2"></p>
+</div>
+<script>
+ 
+    
+	   document.getElementById("form1").onsubmit=function() {
+	   
+	   
+	   
+	   if(document.querySelector('input[name = "cuisine"]:checked') &&  document.querySelector('input[name = "activity"]:checked') && document.querySelector('input[name = "animal"]:checked')){
+	   
+	  cuisine = parseInt(document.querySelector('input[name = "cuisine"]:checked').value);  
+	  
+	  activity = parseInt(document.querySelector('input[name = "activity"]:checked').value);
+	 
+	 animal = parseInt(document.querySelector('input[name = "animal"]:checked').value);
+	   
+	   total= cuisine + activity + animal;
+	   
+	  
+	   //document.getElementById("answer").innerHTML = total;
+	   
+	   
+
+	   if(total < 4) {
+document.getElementById("answer2").innerHTML = "You're a West Texan";
+}
+
+   if(total >=4 && total < 7) {
+document.getElementById("answer2").innerHTML = "You're a Central Texan.";
+}
+	
+	if(total >=7) {
+document.getElementById("answer2").innerHTML = "You're a Coastal Texan";
+}   
+}
+
+else {
+alert("Fill out all questions before submitting.");
+}
+
+
+		   
+	   return false; // required to not refresh the page; just leave this here
+	   }// end the submit function
+	
+
+</script>
+
+
+
+
+
+</body>
+</html>
